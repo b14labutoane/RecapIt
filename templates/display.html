@@ -3,162 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="static/images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png"/>
     <link rel="stylesheet" href="static/style.css" />
-
+    <script src="static/script.js"></script>
     <title>Recap It</title>
   </head>
+
   <body>
-    <script>
-      const images = [
-        "alaci22015-ex12.png",
-        "alaci22015-ex11.png",
-        "alaci22015-ex10.png",
-        "alaci22015-ex9.png",
-        "alaci22015-ex8.png",
-        "alaci22015-ex7.png",
-        "alaci22015-ex6.png",
-        "alaci22015-ex5.png",
-        "alaci22015-ex4.png",
-        "alaci22015-ex3.png",
-        "alaci22015-ex2.png",
-        "alaci22015-ex1.png",
-        "alaci12015-ex12.png",
-        "alaci12015-ex11.png",
-        "alaci12015-ex10.png",
-        "alaci12015-ex9.png",
-        "alaci12015-ex8.png",
-        "alaci12015-ex7.png",
-        "alaci12015-ex6.png",
-        "alaci12015-ex5.png",
-        "alaci12015-ex4.png",
-        "alaci12015-ex3.png",
-        "alaci12015-ex2.png",
-        "alaci12015-ex1.png",
-        "alaci22016-ex12.png",
-        "alaci22016-ex11.png",
-        "alaci22016-ex10.png",
-        "alaci22016-ex9.png",
-        "alaci22016-ex8.png",
-        "alaci22016-ex7.png",
-        "alaci22016-ex6.png",
-        "alaci22016-ex5.png",
-        "alaci22016-ex4.png",
-        "alaci22016-ex3.png",
-        "alaci22016-ex2.png",
-        "alaci22016-ex1.png",
-        "alaci12016-ex12.png",
-        "alaci12016-ex11.png",
-        "alaci12016-ex10.png",
-        "alaci12016-ex9.png",
-        "alaci12016-ex8.png",
-        "alaci12016-ex7.png",
-        "alaci12016-ex6.png",
-        "alaci12016-ex5.png",
-        "alaci12016-ex4.png",
-        "alaci12016-ex3.png",
-        "alaci12016-ex2.png",
-        "alaci12016-ex1.png",
-        "alaci22019-ex12.png",
-        "alaci22019-ex11.png",
-        "alaci22019-ex10.png",
-        "alaci22019-ex9.png",
-        "alaci22019-ex8.png",
-        "alaci22019-ex7.png",
-        "alaci22019-ex6.png",
-        "alaci22019-ex5.png",
-        "alaci22019-ex4.png",
-        "alaci22019-ex3.png",
-        "alaci22019-ex2.png",
-        "alaci22019-ex1.png",
-        "alaci12019-ex12.png",
-        "alaci12019-ex11.png",
-        "alaci12019-ex10.png",
-        "alaci12019-ex9.png",
-        "alaci12019-ex8.png",
-        "alaci12019-ex7.png",
-        "alaci12019-ex6.png",
-        "alaci12019-ex5.png",
-        "alaci12019-ex4.png",
-        "alaci12019-ex3.png",
-        "alaci12019-ex2.png",
-        "alaci12019-ex1.png",
-        "alaci22018-ex12.png",
-        "alaci22018-ex11.png",
-        "alaci22018-ex10.png",
-        "alaci22018-ex9.png",
-        "alaci22018-ex8.png",
-        "alaci22018-ex7.png",
-        "alaci22018-ex6.png",
-        "alaci22018-ex5.png",
-        "alaci22018-ex4.png",
-        "alaci22018-ex3.png",
-        "alaci22018-ex2.png",
-        "alaci22018-ex1.png",
-        "alaci12018-ex12.png",
-        "alaci12018-ex11.png",
-        "alaci12018-ex10.png",
-        "alaci12018-ex9.png",
-        "alaci12018-ex8.png",
-        "alaci12018-ex7.png",
-        "alaci12018-ex6.png",
-        "alaci12018-ex5.png",
-        "alaci12018-ex4.png",
-        "alaci12018-ex3.png",
-        "alaci12018-ex2.png",
-        "alaci12018-ex1.png",
-        "alaci22017-ex12.png",
-        "alaci22017-ex11.png",
-        "alaci22017-ex10.png",
-        "alaci22017-ex9.png",
-        "alaci22017-ex8.png",
-        "alaci22017-ex7.png",
-        "alaci22017-ex6.png",
-        "alaci22017-ex5.png",
-        "alaci22017-ex4.png",
-        "alaci22017-ex3.png",
-        "alaci22017-ex2.png",
-        "alaci22017-ex1.png",
-        "alaci12017-ex12.png",
-        "alaci12017-ex11.png",
-        "alaci12017-ex10.png",
-        "alaci12017-ex9.png",
-        "alaci12017-ex8.png",
-        "alaci12017-ex7.png",
-        "alaci12017-ex6.png",
-        "alaci12017-ex5.png",
-        "alaci12017-ex4.png",
-        "alaci12017-ex3.png",
-        "alaci12017-ex2.png",
-        "alaci12017-ex1.png",
-      ];
-      function changeImage() {
-        document.getElementById("dapoza").src =
-          "static/images/" + images[Math.floor(Math.random() * images.length)];
-      }
-    </script>
     <div class="container">
-      <img
-        id="dapoza"
-        src="static/images/firstimage.png"
-        alt="trebuia sa fie o imagine sorry"
-      />
-      <h2>
-        Dupa ce am facut toate subiectele, fix de exercitii random din ele mai
-        am chef
-      </h2>
+      <img id="dapoza" src="static/images/firstimage.png" alt="trebuia sa fie o imagine sorry"/>
+      <h2>Random exercises</h2>
       <button class="butoi" onClick="changeImage()">Click aici</button>
-      <p>
-        Apasa pe buton ca sa primesti un exercitiu random sa se stie ca tu vrei
-        la Poli si nu te joci
-      </p>
+      <p>Press the button for a random exercise</p>
     </div>
     <div class="attribution">
       Coded by <a href="https://github.com/b14labutoane">Bianca Badescu</a>.

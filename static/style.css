@@ -5,6 +5,9 @@
     --light-gray: hsl(212, 45%, 89%);
     --grayish-blue: hsl(220, 15%, 55%);
     --dark-blue: hsl(218, 44%, 22%);
+    --bgclr: #E1E5F2;
+    --nbclr: #1F7A8C;
+    --dbclr: #022B3A;
 }  
 
 * {
@@ -20,7 +23,7 @@
  body {
     font-family: "Outfit", sans-serif;    
     font-size: 15px;
-    background-color: var(--light-gray);
+    background-color: var(--bgclr);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +49,7 @@
 }
 
 .container h1 {
-    color: var(--dark-blue);
+    color: var(--white);
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -71,7 +74,7 @@
     }
 }
 .butoi{
-    background-color:rgb(109, 170, 255);
+    background-color:var(--nbclr);
     border-radius: 0.3rem;
     font-size: 20px;
     padding: 10px;
@@ -83,14 +86,14 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: hsl(228, 45%, 44%);
+    background-color: var(--nbclr);
     z-index: 10;
 }
 .nav-links{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:hsl(228, 45%, 44%);
+    background:var(--nbclr);
     padding: 20px 15px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -118,10 +121,35 @@
     left: 0;
     height: 3px;
     width: 0%;
-    background: turquoise;
+    background: var(--bgclr);
     transition: all 0.4s ease;
 }
 
 .nav-links li a:hover:before{
     width: 100%;
 }
+
+.file-input{
+    display: none;
+}
+
+.file-label{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--nbclr);
+    color: white;
+    font-size: 14px;
+    font-family: inherit; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.file-label:hover {
+    background-color: var(--dbclr);
+}
+

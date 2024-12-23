@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="static/images/minilogo.png"/>
+        <link rel="stylesheet" href="static/style.css" />
+        <script src="static/script.js"></script>
+        <title>Recap It</title>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <a href="/display"><img src="static/images/logotaiat.png" class="hello" alt="sorry"/></a>
+            <ul class="nav-links">
+                <li><a href = "/display">Home</a></li><!--Prezentare generala-->
+                <li><a href = "/newlearn">New Learn</a></li><!--Unde dai upload-->
+                <li><a href= "/learning">Learning</a></li><!--Colectia de foldere cu poze la random si cand dai select la pozele pe care le vrei in session-ul resp ti se deschide un dinala nou-->
+                <li><a href = "/about">About</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <h2>Upload new File</h2>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file" class="file-input" onchange="showFileName()">
+                        <p id="file-name" class="file-name">No file chosen</p>
+                        <label for="file" class="file-label">Choose File</label> 
+                        <button type="submit" class="file-label">Upload</button>
+                    </form>
+        </div>
+        <div class="attribution">
+            Coded by <a href="https://github.com/b14labutoane">Bianca Badescu</a>.
+        </div>
+  </body>
+</html>

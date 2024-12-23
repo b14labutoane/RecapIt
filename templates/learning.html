@@ -5,29 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/minilogo.png"/>
     <link rel="stylesheet" href="static/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="static/script.js"></script>
-    <title>Recap It</title>
+    <script>
+      let imageIndex = 0;
+      let images = [];
+
+      // Function to show the next image randomly
+      function showNextImage() {
+        if (images.length > 0) {
+          const imgElement = document.getElementById('randomImage');
+          imageIndex = (imageIndex + 1) % images.length; // Loop through the images
+          imgElement.src = images[imageIndex];
+        }
+      }
+
+      // Initialize the images
+      function initializeImages(imageUrls) {
+        images = imageUrls;
+        if (images.length > 0) {
+          document.getElementById('randomImage').src = images[0]; // Show the first image initially
+        }
+      }
+    </script>
+    <title>Recap It - Learning</title>
   </head>
 
   <body>
     <div class="navbar">
-      <a href="/display"></a><img src="static/images/logotaiat.png" class="hello" alt="sorry"/>
+      <a href="/display"><img src="static/images/logotaiat.png" class="hello" alt="Logo"/></a>
       <ul class="nav-links">
-        <li><a href = "/display">Home</a></li><!--Prezentare generala-->
-        <li><a href = "/newlearn">New Learn</a></li><!--Unde dai upload-->
-        <li><a href= "/learning">Learning</a></li><!--Colectia de foldere cu poze la random si cand dai select la pozele pe care le vrei in session-ul resp ti se deschide un dinala nou-->
-        <li><a href = "/about">About</a></li>
+        <li><a href="/display">Home</a></li>
+        <li><a href="/newlearn">New Learn</a></li>
+        <li><a href="/learning">Learning</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
     </div>
+
     <section>
       <div class="container">
-        <img id="dapoza" src="static/images/firstimage.png" alt="trebuia sa fie o imagine sorry"/>
         <h2>Random exercises</h2>
-        <button class="butoi" onClick="changeImage()">Click aici</button>
+        <img id="randomImage" src="" alt="No Uploads" />
+        <button class="butoi" onclick="showNextImage()">Click aici</button>
         <p>Press the button for a random exercise</p>
       </div>
     </section>
+
+    <script>
+      const imageUrls = {{ image_urls | tojson }};  // This is the image list passed from Flask
+      initializeImages(imageUrls);  // Initialize the image list and set the first image
+    </script>
     <div class="attribution">
       Coded by <a href="https://github.com/b14labutoane">Bianca Badescu</a>.
     </div>

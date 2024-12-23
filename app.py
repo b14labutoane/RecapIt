@@ -14,7 +14,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/learn', methods=['GET', 'POST'])
+@app.route('/newlearn', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -37,7 +37,7 @@ def upload_file():
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="static/images/minilogo.png"/>
         <link rel="stylesheet" href="static/style.css" />
         <script src="static/script.js"></script>
         <title>Recap It</title>
@@ -45,9 +45,11 @@ def upload_file():
 
     <body>
         <div class="navbar">
+            <a href="/display"></a><img src="static/images/logotaiat.png" class="hello" alt="sorry"/>
             <ul class="nav-links">
-                <li><a href = "/display">Home</a></li><!--Unde dai upload-->
-                <li><a href = "/learn">Learn</a></li><!--Unde iti apare random-->
+                <li><a href = "/display">Home</a></li><!--Prezentare generala-->
+                <li><a href = "/newlearn">New Learn</a></li><!--Unde dai upload-->
+                <li><a href= "/learning">Learning</a></li><!--Colectia de foldere cu poze la random si cand dai select la pozele pe care le vrei in session-ul resp ti se deschide un dinala nou-->
                 <li><a href = "/about">About</a></li>
             </ul>
         </div>
@@ -74,9 +76,14 @@ def download_file(name):
 @app.route('/display')
 def display():
     return render_template('display.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/learning')
+def learning():
+    return render_template('learning.html')
 
 def pdf_to_jpg(pdf_path, output_folder):
     """

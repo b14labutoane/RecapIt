@@ -88,6 +88,7 @@
     width: 100%;
     background-color: var(--nbclr);
     z-index: 10;
+    flex-wrap: wrap;
 }
 .nav-links{
     display: flex;
@@ -152,4 +153,42 @@
 .file-label:hover {
     background-color: var(--dbclr);
 }
+.icons{
+    display: flex;
+    padding: 15px 0;
+}
+.icons li{
+    display: block;
+    padding: 5px;
+    margin: 5px;
+}
+.icons li i{
+    font-size: 26px;
+    opacity: 0.8;
+}
+.icons li i:hover{
+    color: var(--bgclr);
+}
 
+.navbar .hello{
+    position: fixed;
+    height: auto;
+    left: 10px;
+    width: 160px;
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .navbar .logo {
+        margin-bottom: 10px; 
+        max-height: 40px; 
+    } 
+}

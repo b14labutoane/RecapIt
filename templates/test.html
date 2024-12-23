@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to JPG Folder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .folder-title {
+        background-color: #0078d7;
+        color: white;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .container {
+        overflow: hidden;
+        border: 1px solid #ddd;
+    }
+
+    .gallery img {
+        margin: 5px;
+        border: 2px solid transparent;
+    }
+
+    .gallery img:active {
+        border: 2px solid #0078d7;
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="folder-title">PDF Conversion Folder</div>
+        <div class="gallery" id="gallery">
+            <!-- Images dynamically inserted here -->
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <img id="modalImage" src="" alt="Full view">
+    </div>
+    
+    <script>
+        const form = document.getElementById('uploadForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            // Prepare the form data for uploading
+            const formData = new FormData(form);
+    
+            // Send the PDF to the backend
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+    
+            if (response.ok) {
+                // Get the list of JPG URLs from the server
+                const imageUrls = await response.json();
+                const gallery = document.getElementById('gallery');
+                gallery.innerHTML = ''; // Clear any existing images
+    
+                // Display the images in the "folder"
+                imageUrls.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = 'Converted JPG';
+                    gallery.appendChild(img);
+                });
+            } else {
+                alert('Failed to upload PDF.');
+            }
+        });
+    </script>
+    
+</body>
+</html>
